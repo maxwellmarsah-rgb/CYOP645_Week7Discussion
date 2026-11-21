@@ -1,0 +1,43 @@
+SafeSubmit User Guide
+====================
+
+Run the application
+-------------------
+
+1. Make sure Python is installed.
+2. Open a terminal in the folder containing App.py and requirements.txt.
+3. Install the dependencies:
+
+       python -m pip install -r requirements.txt
+
+   (Flask can also be installed directly with `python -m pip install flask`.)
+4. Start the application:
+
+       python App.py
+
+5. Open this address in a web browser:
+
+       http://127.0.0.1:5000
+
+The `static` folder containing `style.css` must remain beside App.py.
+
+Positive test
+-------------
+
+Enter a compliant name such as `Jane Doe`, a valid email such as
+`jane@example.com`, choose a category and severity from the available lists,
+and enter a description between 5 and 500 characters. Click
+“Submit Secure Ticket”. The validated ticket should appear in the panel on
+the right.
+
+Negative and security tests
+---------------------------
+
+* Enter `<b>Admin</b>` as the Reporter Name. The name allowlist should reject
+  characters outside its permitted set.
+* Enter a malformed email address. Server-side validation should reject it.
+* Enter `<script>alert('XSS')</script>` as the Description. The description
+  is displayed as escaped text, not executed as HTML. The page does not
+  provide a separate HTML-encoded entity preview.
+* Visit `/admin` (for example, `http://127.0.0.1:5000/admin`). The application
+  should return a clean 404 page without exposing internal details.
