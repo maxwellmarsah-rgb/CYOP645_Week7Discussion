@@ -27,7 +27,7 @@ Positive test
 Enter a compliant name such as `Jane Doe`, a valid email such as
 `jane@example.com`, choose a category and severity from the available lists,
 and enter a description between 5 and 500 characters. Click
-“Submit Secure Ticket”. The validated ticket should appear in the panel on
+Submit Secure Ticket. The validated ticket should appear in the panel on
 the right.
 
 Negative and security tests
